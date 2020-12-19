@@ -1,17 +1,67 @@
 {
   "name": "1hvideomaker",
-  "version": "1.0.0",
-  "description": "Make a 1h version of a YT video",
+  "version": "0.1.0",
+  "description": "make 1h yt videos",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
-  "author": "Redstonerayy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redstonerayy/1hVideoMaker.git"
+  },
+  "keywords": [
+    "electron",
+    "ytdlcore",
+    "fluentffmpeg"
+  ],
+  "author": "redstonerayy",
   "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/Redstonerayy/1hVideoMaker/issues"
+  },
+  "homepage": "https://github.com/Redstonerayy/1hVideoMaker#readme",
   "dependencies": {
-    "electron": "^11.1.0",
+    "electron-squirrel-startup": "^1.0.0",
     "fluent-ffmpeg": "^2.1.2",
     "ytdl-core": "^4.2.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^11.1.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "1hvideomaker"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

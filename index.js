@@ -58,6 +58,9 @@ function make1hvideo(filename){
     keepvidaud = false;
     hours = 1;
     pic = null;
+    //reset inputs
+    textfield.value = "";
+    picture.value = "";
   })
   .run();
 }
@@ -119,9 +122,13 @@ button.addEventListener("click", async() => {
       } catch(e){
       }
     });
-
-    hours = +(hoursinput.value);
-
+    if(hoursinput.value != ""){
+      try {
+        hours = +(hoursinput.value);
+      } catch (e) {
+        hours = 1;
+      }
+    }
     //keep files
     keepstring = keep.value;
     keepstring = keepstring.split(" ");
@@ -131,7 +138,6 @@ button.addEventListener("click", async() => {
     if(keepstring[1] === "true"){
       keepvidaud = true;
     }
-    console.log(hours, keepstring, keep1h, keepvidaud);
     //remove chars from name that can`t be in windows filename
     // <>:"/\|?*
     char = String.raw`<>:"/\|?*`;//"- "
@@ -165,9 +171,11 @@ button.addEventListener("click", async() => {
   }
 });
 
-/*
 
+/*
+----------------------------------------------------------------------------
  FOUND OUT AND USEFUL PART
+----------------------------------------------------------------------------
 //its important that the picture is the first input option,
 //elsewise there will be an error
 //stole code from here: https://www.reddit.com/r/ffmpeg/comments/keobv8/shortest_doesnt_work_as_intended/
