@@ -149,7 +149,7 @@ button.addEventListener("click", async() => {
 
     //video
     var vid = false;
-    ytdl(textfield.value, { quality: "lowestvideo"})
+    ytdl(textfield.value, { quality: "highestvideo"})
     .on("finish", () => {
       vid = true;
       if(aud){
@@ -160,7 +160,7 @@ button.addEventListener("click", async() => {
 
     //audio
     var aud = false;
-    ytdl(textfield.value, { quality: "lowestaudio"})
+    ytdl(textfield.value, { quality: "highestaudio"})
     .on("finish", () => {
       aud = true;
       if(vid){

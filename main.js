@@ -10,7 +10,6 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-  win.openDevTools();
   win.loadFile('index.html');
 }
 
