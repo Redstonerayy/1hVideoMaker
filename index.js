@@ -27,7 +27,7 @@ pic = null;
 
 function make1hvideo(filename){
   //merge 1h files
-  vidaud = ffmpeg()
+  var vidaud = ffmpeg()
   //make photo instead of 1h video
   if(pic != null){
     vidaud.input(pic); // look end
@@ -48,6 +48,13 @@ function make1hvideo(filename){
     if(!keepvidaud){
       fs.unlinkSync(filename + "a.mp4");
       fs.unlinkSync(filename + "v.mp4");
+    } else {
+      //merge short files
+      var shortvid = ffmpeg();
+      shortvid.input(filename + "a.mp4")
+      .input(filename + "v.mp4")
+      .output(filename + ".mp4")
+      .run();
     }
     if(!keep1h){
       fs.unlinkSync(filename + "1 Hour Versiona.mp4");
@@ -149,7 +156,10 @@ button.addEventListener("click", async() => {
 
     //video
     var vid = false;
-    ytdl(textfield.value, { quality: "highestvideo"})
+    ytdl.getInfo(textfield.value).then((info) => {
+      console.log(info);
+    });
+    ytdl(textfield.value, { quality: 397})
     .on("finish", () => {
       vid = true;
       if(aud){

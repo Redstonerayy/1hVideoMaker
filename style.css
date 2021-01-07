@@ -6,7 +6,7 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background: #282C34;
-  color: #ABB2BF;
+  color: black;
   outline: none;
 }
 
@@ -23,6 +23,18 @@ body > * {
 
 body > * {
   border: 0px solid;
+}
+
+#input {
+  width: 53%;
+}
+
+#keep {
+  height: 16px;
+}
+
+#keep > * {
+  background: white;
 }
 
 button {
