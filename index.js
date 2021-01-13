@@ -162,7 +162,7 @@ button.addEventListener("click", async() => {
     ytdl.getInfo(textfield.value).then((info) => {
       console.log(info);
     });
-    ytdl(textfield.value, { quality: 397})
+    ytdl(textfield.value, { quality: 247})
     .on("finish", () => {
       vid = true;
       if(aud){
